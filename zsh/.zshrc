@@ -12,3 +12,7 @@ zstyle :compinstall filename '/home/aguachufrei/.zshrc'
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
+
+# Aliases
+alias e=exit
+alias c=clear
