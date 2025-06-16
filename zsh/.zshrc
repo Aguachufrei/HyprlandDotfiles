@@ -16,3 +16,15 @@ compinit
 # Aliases
 alias e=exit
 alias c=clear
+
+# Exports
+export NPM_CONFIG_USERCONFIG=~/.config/npm/npmrc
+export STARSHIP_CONFIG=~/dotfiles/starship/starship.toml
+export STARSHIP_CACHE=~/.starship/cache
+
+#PATH
+export PATH="$HOME/.local/share/npm/bin:$PATH"
+
+
+# Start starship
+eval "$(starship init zsh)"
