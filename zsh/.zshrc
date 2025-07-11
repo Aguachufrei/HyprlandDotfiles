@@ -8,6 +8,8 @@ bindkey -v
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/aguachufrei/.zshrc'
+#Reverse search
+bindkey "^R" history-incremental-search-backward
 
 autoload -Uz compinit
 compinit
@@ -20,7 +22,7 @@ alias c=clear
 # Exports
 export NPM_CONFIG_USERCONFIG=~/.config/npm/npmrc
 export STARSHIP_CONFIG=~/dotfiles/starship/starship.toml
-export STARSHIP_CACHE=~/.starship/cache
+export STARSHIP_CACHE=~/.cache/starship
 
 #PATH
 export PATH="$HOME/.local/share/npm/bin:$PATH"

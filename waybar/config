@@ -1,50 +1,150 @@
 {
-  "layer": "bottom",
-  "position": "top",
-  "height": 24,
-  "spacing": 5,
-  "modules-left": ["hyprland/workspaces"],
-  "modules-right": ["cpu","memory","battery","pulseaudio","clock","tray"],
-  "cpu": { 
-    "interval": 10, 
-    "format": "CPU: {usage}%" 
+  "layer": "top",
+  "reload_style_on_change": true,
+  "modules-left": [
+    "custom/launcher",
+    "hyprland/workspaces",
+    "hyprland/window",
+    "network",
+
+
+  ],
+  "modules-center": ["clock", "custom/weather", "tray"],
+  "modules-right": [
+    "backlight",
+    "temperature",
+    "cpu",
+    "custom/gpu",
+    "memory",
+    "pulseaudio",
+    "battery",
+  ],
+
+ "custom/launcher":{
+      "format": " ",
+      "on-click": "fuzzel",
+      "on-click-right": "killall fuzzel"
+    },
+
+  "hyprland/workspaces": {
+    "on-click": "activate",
+    "on-scroll-up": "hyprctl dispatch workspace e-1",
+    "on-scroll-down": "hyprctl dispatch workspace e+1",
+    "persistent-workspaces": {
+      "*": 0, // 5 workspaces by default on every monitor
+    },
   },
-  "memory": {
-    "interval": 30,
-    "format": "RAM: {used:0.1f}GiB/{total:0.1f}GiB ({percentage}%) SWAP: {swapUsed:0.1f}GiB/{swapTotal:0.1f}GiB ({swapPercentage}%)"
+
+  "clock": {
+    //"on-click": "gsimplecal",
+    "format": "<span color='#ffcb6b'>󰥔</span> {:%H:%M | <span color='#c4a7e7'>󰃮</span> %A, %d %B}",
+    //"format": "{:󰃮 %A, %d %B | 󰥔 %H:%M}",
+    //"format-alt": "󰃮 {:%A, %d %B}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><big>{calendar}</big></tt>",
+    "calendar": {
+      "locale": "en_GB.UTF-8",
+      "mode": "month",
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "on-scroll": 1,
+      "on-click-right": "mode",
+      "format": {
+        "months": "<span color='#d3c6aa'><b>{}</b></span>",
+        "days": "<span color='#e67e80'>{}</span>",
+        "weeks": "<span color='#a7c080'><b>W{}</b></span>",
+        "weekdays": "<span color='#7fbbb3'><b>{}</b></span>",
+        "today": "<span color='#dbbc7f'><b><u>{}</u></b></span>",
+      },
+    },
   },
+
+  "custom/weather": {
+  "exec": "~/.config/hypr/scripts/weather.sh",
+  "interval": 900,
+  "format": "<span color='#c4a7e7'></span> {}",
+  "tooltip": true
+},
+
+
+  "tray": {
+    "icon-size": 18,
+    "spacing": 5,
+  },
+
+  "backlight": {
+    "format": "{icon} {percent}%",
+    "format-icons": ["󰃞", "󰃟", "󰃠"],
+    "on-click": "brightnessctl set +5%",
+    "on-click-right": "brightnessctl set 5%-",
+  },
+
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-bluetooth": "󰂰 {volume}%",
+    "format-bluetooth-muted": "󰂲 {icon}",
+    "format-muted": "󰝟",
+    "format-icons": {
+      "headphone": "󰋋",
+      "hands-free": "󰥰",
+      "headset": "󰋎",
+      "phone": "󰏲",
+      "portable": "󰄝",
+      "car": "󰄋",
+      "default": ["󰕿", "󰖀", "󰕾"],
+    },
+    "on-click": "pavucontrol",
+    "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +2%",
+    "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -2%",
+  },
+
+  "network": {
+    "format-wifi": "󰖩 {essid} {signalStrength}%",
+    //"format-ethernet": "󰈀 {ipaddr}",
+    "format-ethernet": "<span color='#7CCD7F'>󰈀</span> {ipaddr}",
+    //"format-linked": "󰈀 {ifname} (No IP)",
+    "format-disconnected": "󰖪 Disconnected",
+    "format-alt": "{ifname}: {ipaddr}/{cidr}",
+    "tooltip-format": "{ifname}: {ipaddr}",
+  },
+
   "battery": {
-    "bat": "BAT0",
     "states": {
       "good": 95,
       "warning": 30,
-      "critical": 5
+      "critical": 15,
     },
-    "format": "BAT0: {capacity}%",
-    "format-charging": "BAT0: {capacity}% (charging)",
-    "format-plugged": "BAT0: {capacity}% (plugged)",
+    "format": "{icon} {capacity}%",
+    "format-charging": "󰂄 {capacity}%",
+    "format-plugged": "󰚥 {capacity}%",
+    "format-alt": "{icon} {time}",
+    "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
   },
-  "clock": {
-    "format": "{:%Y/%m/%d %H:%M}",
-    "tooltip-format": "<tt><small>{calendar}</small></tt>",
-    "calendar": {
-      "format": {
-        "months": "<span color='#ffead3'><b>{}</b></span>",
-        "today": "<span color='#ff6699'><b>{}</b></span>"
-      }
-    }
+
+  "cpu": {
+    //"format": "󰍛 {usage}%",
+    "format": "<span color='#c4a7e7'>󰍛</span> {usage}%",
+    "tooltip": true,
+    "interval": 1,
   },
-  "pulseaudio": {
-    "format": "{icon} {volume}%",
-    "format-icons": {
-      "default": ["\uf026", "\uf027", "\uf028"]
-    },
-    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-    "on-click-right": "pavucontrol",
-    "format-muted": "\uf00d {volume}%"
+
+  "custom/gpu": {
+  "exec": "$HOME/dotfiles/scripts/gpucheck.sh",
+  "format": "<span color='#a7c080'>󰍛</span> {}",
+  "return-type": "json",
+  "interval": 1
   },
-  "tray": {
-    "icon-size": 20,
-    "spacing": 10
+
+  "memory": {
+    //"format": " {}%",
+    "format": "<span color='#ffcb6b'>󰘚</span> {}%",
+    "interval": 1,
+  },
+
+  "temperature": {
+    "hwmon-path": "/sys/devices/platform/PNP0C14:02/wmi_bus/wmi_bus-PNP0C14:02/F1DDEE52-063C-4784-A11E-8A06684B9B01/hwmon/hwmon5/temp1_input",
+    "critical-threshold": 80,
+    "format": "{icon} {temperatureC}°C",
+    "format-icons": ["󱃃", "󰔏", "󱃂"],
   },
 }
