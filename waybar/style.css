@@ -145,9 +145,18 @@ border: 2px solid #eb6f92;
 
 }
 
-#custom-gpu {
+#custom-amd_gpu {
   background-color: #191724;
   border: 2px none #403d52;
+  margin: 4px;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  color: #FFFFFF;
+}
+
+#custom-nvidia_gpu {
+  background-color: #191724;
+  border: 2px none #c03d52;
   margin: 4px;
   padding: 4px 10px;
   border-radius: 9999px;

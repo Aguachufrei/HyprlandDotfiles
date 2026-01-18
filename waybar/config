@@ -14,7 +14,8 @@
     "backlight",
     "temperature",
     "cpu",
-    "custom/gpu",
+    "custom/amd_gpu",
+    "custom/nvidia_gpu",
     "memory",
     "pulseaudio",
     "battery",
@@ -22,8 +23,8 @@
 
  "custom/launcher":{
       "format": " ",
-      "on-click": "fuzzel",
-      "on-click-right": "killall fuzzel"
+      "on-click": "rofi -show drun",
+      "on-click-right": "killall rofi"
     },
 
   "hyprland/workspaces": {
@@ -57,14 +58,6 @@
       },
     },
   },
-
-  "custom/weather": {
-  "exec": "~/.config/hypr/scripts/weather.sh",
-  "interval": 900,
-  "format": "<span color='#c4a7e7'></span> {}",
-  "tooltip": true
-},
-
 
   "tray": {
     "icon-size": 18,
@@ -128,13 +121,19 @@
     "interval": 1,
   },
 
-  "custom/gpu": {
-  "exec": "$HOME/dotfiles/scripts/gpucheck.sh",
+  "custom/amd_gpu": {
+  "exec": "$HOME/dotfiles/scripts/agpucheck.sh",
   "format": "<span color='#a7c080'>󰍛</span> {}",
   "return-type": "json",
   "interval": 1
   },
 
+  "custom/nvidia_gpu": {
+  "exec": "$HOME/dotfiles/scripts/ngpucheck.sh",
+  "format": "<span color='#a7c080'>󰍛</span> {}",
+  "return-type": "json",
+  "interval": 1
+  },
   "memory": {
     //"format": " {}%",
     "format": "<span color='#ffcb6b'>󰘚</span> {}%",

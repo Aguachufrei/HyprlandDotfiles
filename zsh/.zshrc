@@ -25,7 +25,7 @@ export STARSHIP_CONFIG=~/dotfiles/starship/starship.toml
 export STARSHIP_CACHE=~/.cache/starship
 
 #PATH
-export PATH="$HOME/.local/share/npm/bin:$PATH"
+export PATH="/opt/cuda/bin:$HOME/.local/share/npm/bin:$PATH"
 
 
 # Start starship
