@@ -13,11 +13,11 @@ window#waybar{
 /* Tooltip */
 tooltip {
   all: unset;
-   color: #fff;
+  color: #fff;
   font-family: "JetBrainsMono Nerd Font", monospace;
   font-size: 12px;
   background-color: #1f1d2e;
-  border: 2px solid #524f67;
+  border: 2px solid #ffff00; /*#524f67;*/
   border-radius: 5px;
 
 }
@@ -49,18 +49,7 @@ color: #FFFFFF;
 /* Launcher */
 #custom-launcher {
 background-color: #191724;
-border: 2px solid #403d52;
 color: #FFFFFF;
-}
-
-/* Weather widget*/
-#custom-weather {
-  background-color: #191724;
-  border: 2px none #403d52;
-  margin: 4px;
-  padding: 4px 10px;
-  border-radius: 9999px;
-  color: #FFFFFF;
 }
 
 /* Workspaces container */
@@ -68,7 +57,6 @@ color: #FFFFFF;
 #window {
 background-color: #191724;
 margin: 4px;
-border: 2px none #403d52;
 padding: 2px 6px;
 border-radius: 9999px;
 }

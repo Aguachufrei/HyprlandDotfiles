@@ -19,10 +19,10 @@ $line_break\
 $character"""
 
 add_newline = true
-palette = 'nord'
+palette = 'custom'
 
 [directory]
-style = 'bold fg:dark_blue'
+style = 'bold fg:white'
 format = '[$path ]($style)'
 truncation_length = 3
 truncation_symbol = '…/'
@@ -35,7 +35,7 @@ truncate_to_repo = false
 'Pictures' = ' '
 
 [git_branch]
-style = 'fg:green'
+style = 'green'
 symbol = ' '
 format = '[on](white) [$symbol$branch ]($style)'
 
@@ -127,3 +127,20 @@ yellow='#e5c07b'
 gray='#828997'
 white ='#abb2bf'
 black='#2c323c'
+
+[palettes.custom]
+dark_blue = '#0011ee'
+blue = '#2244ff'
+teal = '#6666ff'
+red = '#ff2222' 
+orange = '#ee8811'
+green = '#00ff22'
+yellow = '#ffff22'
+purple = '#8800ff'
+gray = '#4d4d4d'
+white = '#ffeeff'
+black = '#112211'
+
+
+
+

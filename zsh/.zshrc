@@ -33,6 +33,9 @@ export XDG_CONFIG_DIRS=/etc/xdg
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
 export GOPATH="$HOME/.local/share/go"
 
+#QT
+export QT_QPA_PLATFORMTHEME=qt6ct
+
 #PATH
 export PATH="/opt/cuda/bin:$HOME/.local/share/npm/bin:$HOME/.local/share/cargo/bin:$PATH"
 
