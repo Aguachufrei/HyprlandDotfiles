@@ -43,7 +43,7 @@
     //"format-alt": "󰃮 {:%A, %d %B}",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><big>{calendar}</big></tt>",
     "calendar": {
-      "locale": "en_GB.UTF-8",
+          "locale": "es_ES.UTF-8",
       "mode": "month",
       "mode-mon-col": 3,
       "weeks-pos": "right",
@@ -68,7 +68,9 @@
     "format": "{icon} {percent}%",
     "format-icons": ["󰃞", "󰃟", "󰃠"],
     "on-click": "brightnessctl set +5%",
-    "on-click-right": "brightnessctl set 5%-",
+    "on-click-right": "brightnessctl set -5%",
+    "on_scroll-up": "brightnessctl set +5%",
+    "on_scroll-down": "brightnessctl set -5%",
   },
 
   "pulseaudio": {
@@ -107,6 +109,7 @@
       "warning": 30,
       "critical": 15,
     },
+    "bat":"BAT0",
     "format": "{icon} {capacity}%",
     "format-charging": "󰂄 {capacity}%",
     "format-plugged": "󰚥 {capacity}%",

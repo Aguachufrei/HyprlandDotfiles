@@ -18,11 +18,13 @@ compinit
 # Aliases
 alias e=exit
 alias c=clear
-
+alias sn=shutdown now
+alias orphan="paru -Qtdq"
 # Exports
 export NPM_CONFIG_USERCONFIG=~/.config/npm/npmrc
 export STARSHIP_CONFIG=~/dotfiles/starship/starship.toml
 export STARSHIP_CACHE=~/.local/cache/starship
+export telnet="export TERM=xterm-256color; telnet"
 
 # XDG
 export XDG_DATA_HOME=~/.local/share
