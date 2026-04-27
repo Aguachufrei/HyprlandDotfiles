@@ -18,8 +18,12 @@ compinit
 # Aliases
 alias e=exit
 alias c=clear
-alias sn=shutdown now
-alias orphan="paru -Qtdq"
+alias ls="ls --color"
+alias ll="ls -la --color"
+alias sn="shutdown now"
+alias porphan="paru -Qtdq"
+alias pcache="sudo paru -Sc"
+
 # Exports
 export NPM_CONFIG_USERCONFIG=~/.config/npm/npmrc
 export STARSHIP_CONFIG=~/dotfiles/starship/starship.toml
