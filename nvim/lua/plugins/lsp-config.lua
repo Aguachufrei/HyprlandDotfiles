@@ -21,6 +21,7 @@ return {
                     "ts_ls",
                     "vimls",
                     "rust_analyzer",
+                    "bashls",
                 }
             })
         end
